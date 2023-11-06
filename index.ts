@@ -7,3 +7,10 @@ export function randomNumber(): number {
 export function throwDices(): number[] {
   return Array.from({ length: numberDices }, randomNumber);
 }
+
+export function getPoints(dices: number[]): number {
+  if (dices.length !== numberDices) {
+    return 0;
+  }
+  return dices.reduce((acc, dice) => acc + dice, 0);
+}

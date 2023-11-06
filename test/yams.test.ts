@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { randomNumber, throwDices } from "..";
+import { getPoints, randomNumber, throwDices } from "..";
 
 const figures = {
   "brelan": {
@@ -38,5 +38,13 @@ describe("yams test", () => {
 
   test("return an array of numbers with a length of 5", () => {
     expect(throwDices()).toBeArrayOfSize(5);
+  });
+
+  test("return 0 if array size is under 5", () => {
+    expect(getPoints([1, 2, 3, 4])).toEqual(0);
+  });
+
+  test("return number points equal to 15", () => {
+    expect(getPoints([1, 2, 3, 4, 5])).toEqual(15);
   });
 });
