@@ -59,3 +59,38 @@ export function countDuplicates(arr: number[]): Record<number, number> {
   return counts;
 }
 
+export function getFigure(dices: number[]): number {
+  const counts = countDuplicates(dices);
+
+  
+  const values = Object.values(counts);
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+  const sum = getPoints(dices);
+
+  if (max === 5) {
+    return figures["yams"].points;
+  }
+
+  if (max === 4) {
+    return figures["carré"].points;
+  }
+
+  if (max === 3) {
+    if (min === 2) {
+      return figures["full"].points;
+    }
+    return figures["brelan"].points;
+  }
+
+  if (sum === 20) {
+    return figures["grande suite"].points;
+  }
+
+  return sum;
+}
+
+export function play(): number
+{
+  return getFigure(throwDices());
+}

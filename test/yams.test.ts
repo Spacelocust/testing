@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { countDuplicates, getPoints, randomNumber, throwDices } from "..";
+import { countDuplicates, getFigure, getPoints, randomNumber, throwDices } from "..";
 
 describe("yams test", () => {
   test("random number between 1 and 6 include", () => {
@@ -26,4 +26,9 @@ describe("yams test", () => {
   test("return an object with duplicate numbers", () => {
     expect(countDuplicates([1, 1, 2, 2, 2])).toMatchObject({ 1: 2, 2: 3 });
   });
+
+  test("return a score of 50 if all dices are the same", () => {
+    expect(getFigure([1, 1, 1, 1, 1])).toEqual(50);
+  });
+
 });
