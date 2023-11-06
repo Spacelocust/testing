@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { randomNumber } from "..";
+import { randomNumber, throwDices } from "..";
 
 const figures = {
   "brelan": {
@@ -35,4 +35,8 @@ describe("yams test", () => {
   test("random number between 1 and 6 include", () => {
     expect(randomNumber()).toBeLessThanOrEqual(6)
   })
+
+  test("return an array of numbers with a length of 5", () => {
+    expect(throwDices()).toBeArrayOfSize(5);
+  });
 });
