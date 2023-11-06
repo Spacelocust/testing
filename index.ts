@@ -58,3 +58,4 @@ export function countDuplicates(arr: number[]): Record<number, number> {
 
   return counts;
 }
+

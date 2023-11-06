@@ -22,4 +22,8 @@ describe("yams test", () => {
   test("return an empty object if array size is under 5", () => {
     expect(countDuplicates([1, 1, 2, 2])).toMatchObject({});
   });
+
+  test("return an object with duplicate numbers", () => {
+    expect(countDuplicates([1, 1, 2, 2, 2])).toMatchObject({ 1: 2, 2: 3 });
+  });
 });
